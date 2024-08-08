@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.js"></script>
+    <script src="local/templates/main/assets/js/Montserrat-Regular-normal.js"></script>
+    <script src="local/templates/main/assets/js/libs.min.js" defer></script>
+    <script src="local/templates/main/assets/js/index.js" type="module"></script>
+    <link rel="stylesheet" href="local/templates/main/assets/css/style.min.css">
+    <link rel="stylesheet" href="local/templates/main/assets/css/media.min.css">
+</head>
+
+<body>
+
+<!-- wrapper -->
+<div class="wrapper">
+    <header class="haeder">
+    </header>
+  <main class="main container">
+    <h1 class="main-title page-title page-title__pt page-title__pb page-title__pl">
+      Программа подбора внутрипольных конвекторов
+    </h1>
+    <section class="model model_mb">
+      <div class="model__inner">
+        <div class="model__box">
+          <div class="model__box-top">
+            <h2 class="title">Модель</h2>
+            <button class="model__btn-reset" type="button text">Сбросить</button>
+          </div>
+          <div class="model__filter model__filter_mb">
+            <button class="model__filter-btn"><span>Любая</span></button>
+            <button class="model__filter-btn"><span>ECO</span></button>
+            <button class="model__filter-btn"><span>VENT</span></button>
+            <button class="model__filter-btn is-active"><span>Level F</span></button>
+            <button class="model__filter-btn"><span>Level W</span></button>
+          </div>
+          <div class="model__dropdown is-active-first">
+            <div class="model__dropdown-top">
+              <button class="model__dropdown-btn is-active" type="button" data-id-body="dr1">
+                <span>Подбор по габаритам</span>
+              </button>
+              <button class="model__dropdown-btn" type="button" data-id-body="dr2">
+                <span>Подбор по теплоотдаче</span>
+              </button>
+            </div>
+            <div class="model__dropdown-body">
+              <div class="model__dropdown-el is-active" id="dr1">
+                <ul class="model__dropdown-list">
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">Высота</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                    </select>
+                    <p class="model__dropdown-item-size">см</p>
+                  </li>
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">Длина</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="490">490</option>
+                      <option value="590">590</option>
+                      <option value="630">630</option>
+                      <option value="700">700</option>
+                    </select>
+                    <p class="model__dropdown-item-size">см</p>
+                  </li>
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">Ширина</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="38">38</option>
+                      <option value="28">28</option>
+                      <option value="44">44</option>
+                      <option value="88">88</option>
+                    </select>
+                    <p class="model__dropdown-item-size">см</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="model__dropdown-el" id="dr2">
+                <ul class="model__dropdown-list">
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">Необходимая теплоотдача</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="1440">1440</option>
+                      <option value="1480">1480</option>
+                      <option value="15000">1500</option>
+                    </select>
+                    <p class="model__dropdown-item-size">Вт</p>
+                  </li>
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">t° воды на входе</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="80">80</option>
+                      <option value="90">90</option>
+                      <option value="100">100</option>
+                    </select>
+                    <p class="model__dropdown-item-size"></p>
+                  </li>
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">t° воды на выходе</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="70">70</option>
+                      <option value="75">75</option>
+                      <option value="80">80</option>
+                    </select>
+                    <p class="model__dropdown-item-size"></p>
+                  </li>
+                  <li class="model__dropdown-item">
+                    <p class="model__dropdown-item-title text">t° в помещении</p>
+                    <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                      <option value="21">21</option>
+                      <option value="33">33</option>
+                      <option value="99">99</option>
+                    </select>
+                    <p class="model__dropdown-item-size"></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <picture class="model__picture">
+          <img src="local/templates/main/assets/image/top.png" alt="">
+        </picture>
+      </div>
+    </section>
+    <!-- type -->
+    <section class="grille-type grille-type_mb">
+      <h2 class="title grille-type__title">Тип решетки</h2>
+      <div class="filter">
+        <ul class="filter__list">
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/1.png);">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio1">
+            </label>
+          </li>
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/2.png);">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio1">
+            </label>
+          </li>
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/3.png);">
+            <label for="" class="filter__label" >
+              <input type="radio" class="filter__input" name="radio1">
+            </label>
+          </li>
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/4.png); ">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio1">
+            </label>
+          </li>
+          <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
+            <label for="" class="filter__label" >
+              <input type="radio" class="filter__input" name="radio1">
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="frame-type frame-type_mb">
+      <h2 class="title frame-type__title">Тип рамки</h2>
+      <div class="filter">
+        <ul class="filter__list">
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/5.png);">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio2">
+            </label>
+          </li>
+          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/6.png);">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio2">
+            </label>
+          </li>
+          <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
+            <label for="" class="filter__label">
+              <input type="radio" class="filter__input" name="radio2">
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="color-type color-type_mb">
+      <h2 class="title color-type__title">Цвет решетки и рамки конвектора</h2>
+      <div class="filter-color">
+        <ul class="filter-color__list">
+          <li class="filter-color__item is-active">
+            <label for="">
+              <div class="filter-color__item-decor" style="--bg: #3C3C3C">BL</div>
+              <p class="filter-color__item-name">черный</p>
+              <input type="radio" name="rdColor1">
+            </label>
+          </li>
+          <li class="filter-color__item">
+            <label for="">
+              <div class="filter-color__item-decor" style="--bg: #5A443F">DB</div>
+              <p class="filter-color__item-name">
+                темно-<br>коричневый
+              </p>
+              <input type="radio" name="rdColor2">
+            </label>
+          </li>
+          <li class="filter-color__item">
+            <label for="">
+              <div class="filter-color__item-decor" style="--bg: #8C754F">BR</div>
+              <p class="filter-color__item-name">
+                латунь/темное<br> золото
+              </p>
+              <input type="radio" name="rdColor3">
+            </label>
+          </li>
+          <li class="filter-color__item">
+            <label for="">
+              <div class="filter-color__item-decor" style="--bg: #96907B">LB</div>
+              <p class="filter-color__item-name">
+                светлая бронза/<br>шампань
+              </p>
+              <input type="radio" name="rdColor4">
+            </label>
+          </li>
+          <li class="filter-color__item">
+            <label for="">
+              <div class="filter-color__item-decor" style="--bg: #A5A6A5">NA</div>
+              <p class="filter-color__item-name">
+                натуральный<br>алюминий
+              </p>
+              <input type="radio" name="rdColor5">
+            </label>
+          </li>
+          <li class="filter-color__item filter-color__item_input">
+            <div class="filter-color__item-decor filter-color__item-decor_two-el" style="--bg: #ECECEC">
+              RAL
+              <input type="text">
+            </div>
+            <label for="mat1" class="filter-color__label">
+              <input id="mat1" type="checkbox" class="filter-color__input">
+              <div class="filter-color__input-decor"></div>
+              <p class="filter-color__input-title">матовое</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="execution-type execution-type_mb">
+      <h2 class="title execution-type__title">
+        Нестандартное исполнение
+      </h2>
+      <ul class="filter__list">
+        <li class="filter__item" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;" data-id="1">
+          <label for="" class="filter__label">
+            <input type="radio" class="filter__input" name="radio3">
+          </label>
+        </li>
+        <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/7.png) 66% 28%;" data-id="1">
+          <label for="" class="filter__label">
+            <input type="radio" class="filter__input" name="radio3">
+          </label>
+        </li>
+        <li class="filter__item" style="background: url(local/templates/main/assets/image/type/8.png) no-repeat 66% 45%;" data-id="1">
+          <label for="" class="filter__label">
+            <input type="radio" class="filter__input" name="radio3">
+          </label>
+        </li>
+      </ul>
+      <div class="execution-type__body">
+        <div class="execution-type__el" data-id="1" style="padding: 0px 0px 20px 0px;"></div>
+        <div class="execution-type__el is-active" data-id="2">
+
+          <div class="block-rotate">
+            <div class="block-rotate__title">
+              <p class="text">
+                Левый торец
+              </p>
+              <p class="text">
+                Правый торец
+              </p>
+            </div>
+            <div class="block-rotate__buttons">
+              <div class="block-rotate__btn" type="button">
+                <div class="block-rotate__btn-state-one btn btn_min">Добавить</div>
+                <div class="block-rotate__btn-state-two">
+                  <div class="block-rotate__btn-info">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.95012 16C10.3001 16 10.5961 15.879 10.8381 15.637C11.0801 15.395 11.2008 15.0993 11.2001 14.75C11.1995 14.4007 11.0788 14.1047 10.8381 13.862C10.5975 13.6193 10.3015 13.4987 9.95012 13.5C9.59879 13.5013 9.30312 13.6223 9.06312 13.863C8.82312 14.1037 8.70212 14.3993 8.70012 14.75C8.69812 15.1007 8.81912 15.3967 9.06312 15.638C9.30712 15.8793 9.60279 16 9.95012 16ZM9.05012 12.15H10.9001C10.9001 11.6 10.9628 11.1667 11.0881 10.85C11.2135 10.5333 11.5675 10.1 12.1501 9.55C12.5835 9.11667 12.9251 8.70401 13.1751 8.31201C13.4251 7.92 13.5501 7.44934 13.5501 6.9C13.5501 5.96667 13.2085 5.25001 12.5251 4.75001C11.8418 4.25001 11.0335 4.00001 10.1001 4.00001C9.15012 4.00001 8.37946 4.25001 7.78812 4.75001C7.19679 5.25001 6.78412 5.85001 6.55012 6.55001L8.20012 7.20001C8.28346 6.9 8.47112 6.57501 8.76312 6.22501C9.05512 5.87501 9.50079 5.70001 10.1001 5.70001C10.6335 5.70001 11.0335 5.846 11.3001 6.138C11.5668 6.43 11.7001 6.75067 11.7001 7.10001C11.7001 7.43334 11.6001 7.74601 11.4001 8.038C11.2001 8.33 10.9501 8.60067 10.6501 8.85001C9.91679 9.5 9.46679 9.99167 9.30012 10.325C9.13346 10.6583 9.05012 11.2667 9.05012 12.15ZM10.0001 20C8.61679 20 7.31679 19.7377 6.10012 19.213C4.88346 18.6883 3.82512 17.9757 2.92512 17.075C2.02512 16.1743 1.31279 15.116 0.788123 13.9C0.263457 12.684 0.000790003 11.384 0.000123336 10C-0.000543331 8.616 0.262123 7.31601 0.788123 6.10001C1.31412 4.88401 2.02646 3.82567 2.92512 2.92501C3.82379 2.02434 4.88212 1.31201 6.10012 0.788005C7.31812 0.264005 8.61812 0.00133838 10.0001 5.0505e-06C11.3821 -0.00132828 12.6821 0.261339 13.9001 0.788005C15.1181 1.31467 16.1765 2.02701 17.0751 2.92501C17.9738 3.82301 18.6865 4.88134 19.2131 6.10001C19.7398 7.31867 20.0021 8.61867 20.0001 10C19.9981 11.3813 19.7355 12.6813 19.2121 13.9C18.6888 15.1187 17.9765 16.177 17.0751 17.075C16.1738 17.973 15.1155 18.6857 13.9001 19.213C12.6848 19.7403 11.3848 20.0027 10.0001 20ZM10.0001 18C12.2335 18 14.1251 17.225 15.6751 15.675C17.2251 14.125 18.0001 12.2333 18.0001 10C18.0001 7.76667 17.2251 5.875 15.6751 4.32501C14.1251 2.77501 12.2335 2.00001 10.0001 2.00001C7.76679 2.00001 5.87512 2.77501 4.32512 4.32501C2.77512 5.875 2.00012 7.76667 2.00012 10C2.00012 12.2333 2.77512 14.125 4.32512 15.675C5.87512 17.225 7.76679 18 10.0001 18Z" fill="#E10D49"/>
+                    </svg>
+                  </div>
+                  <div class="block-rotate__btn-counts">
+                    <button class="block-rotate__btn-count-plus">-</button>
+                    <p class="block-rotate__btn-count">0°</p>
+                    <button class="block-rotate__btn-count-minus">+</button>
+                  </div>
+                  <button class="block-rotate__btn-delete">
+                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.583496 4.41667H13.4168M5.16683 7.16667V14.5M8.8335 7.16667V14.5M5.16683 0.75H8.8335C9.07661 0.75 9.30977 0.846577 9.48168 1.01849C9.65359 1.19039 9.75016 1.42355 9.75016 1.66667V4.41667H4.25016V1.66667C4.25016 1.42355 4.34674 1.19039 4.51865 1.01849C4.69056 0.846577 4.92371 0.75 5.16683 0.75ZM1.50016 4.41667H12.5002V16.3333C12.5002 16.5764 12.4036 16.8096 12.2317 16.9815C12.0598 17.1534 11.8266 17.25 11.5835 17.25H2.41683C2.17371 17.25 1.94056 17.1534 1.76865 16.9815C1.59674 16.8096 1.50016 16.5764 1.50016 16.3333V4.41667Z" stroke="#E10D49" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </button>
+                </div>
+              </div>
+              <div class="block-rotate__btn" type="button">
+                <div class="block-rotate__btn-state-one btn btn_min">Добавить</div>
+                <div class="block-rotate__btn-state-two">
+                  <div class="block-rotate__btn-info">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.95012 16C10.3001 16 10.5961 15.879 10.8381 15.637C11.0801 15.395 11.2008 15.0993 11.2001 14.75C11.1995 14.4007 11.0788 14.1047 10.8381 13.862C10.5975 13.6193 10.3015 13.4987 9.95012 13.5C9.59879 13.5013 9.30312 13.6223 9.06312 13.863C8.82312 14.1037 8.70212 14.3993 8.70012 14.75C8.69812 15.1007 8.81912 15.3967 9.06312 15.638C9.30712 15.8793 9.60279 16 9.95012 16ZM9.05012 12.15H10.9001C10.9001 11.6 10.9628 11.1667 11.0881 10.85C11.2135 10.5333 11.5675 10.1 12.1501 9.55C12.5835 9.11667 12.9251 8.70401 13.1751 8.31201C13.4251 7.92 13.5501 7.44934 13.5501 6.9C13.5501 5.96667 13.2085 5.25001 12.5251 4.75001C11.8418 4.25001 11.0335 4.00001 10.1001 4.00001C9.15012 4.00001 8.37946 4.25001 7.78812 4.75001C7.19679 5.25001 6.78412 5.85001 6.55012 6.55001L8.20012 7.20001C8.28346 6.9 8.47112 6.57501 8.76312 6.22501C9.05512 5.87501 9.50079 5.70001 10.1001 5.70001C10.6335 5.70001 11.0335 5.846 11.3001 6.138C11.5668 6.43 11.7001 6.75067 11.7001 7.10001C11.7001 7.43334 11.6001 7.74601 11.4001 8.038C11.2001 8.33 10.9501 8.60067 10.6501 8.85001C9.91679 9.5 9.46679 9.99167 9.30012 10.325C9.13346 10.6583 9.05012 11.2667 9.05012 12.15ZM10.0001 20C8.61679 20 7.31679 19.7377 6.10012 19.213C4.88346 18.6883 3.82512 17.9757 2.92512 17.075C2.02512 16.1743 1.31279 15.116 0.788123 13.9C0.263457 12.684 0.000790003 11.384 0.000123336 10C-0.000543331 8.616 0.262123 7.31601 0.788123 6.10001C1.31412 4.88401 2.02646 3.82567 2.92512 2.92501C3.82379 2.02434 4.88212 1.31201 6.10012 0.788005C7.31812 0.264005 8.61812 0.00133838 10.0001 5.0505e-06C11.3821 -0.00132828 12.6821 0.261339 13.9001 0.788005C15.1181 1.31467 16.1765 2.02701 17.0751 2.92501C17.9738 3.82301 18.6865 4.88134 19.2131 6.10001C19.7398 7.31867 20.0021 8.61867 20.0001 10C19.9981 11.3813 19.7355 12.6813 19.2121 13.9C18.6888 15.1187 17.9765 16.177 17.0751 17.075C16.1738 17.973 15.1155 18.6857 13.9001 19.213C12.6848 19.7403 11.3848 20.0027 10.0001 20ZM10.0001 18C12.2335 18 14.1251 17.225 15.6751 15.675C17.2251 14.125 18.0001 12.2333 18.0001 10C18.0001 7.76667 17.2251 5.875 15.6751 4.32501C14.1251 2.77501 12.2335 2.00001 10.0001 2.00001C7.76679 2.00001 5.87512 2.77501 4.32512 4.32501C2.77512 5.875 2.00012 7.76667 2.00012 10C2.00012 12.2333 2.77512 14.125 4.32512 15.675C5.87512 17.225 7.76679 18 10.0001 18Z" fill="#E10D49"/>
+                    </svg>
+                  </div>
+                  <div class="block-rotate__btn-counts">
+                    <button class="block-rotate__btn-count-plus">-</button>
+                    <p class="block-rotate__btn-count">0°</p>
+                    <button class="block-rotate__btn-count-minus">+</button>
+                  </div>
+                  <button class="block-rotate__btn-delete">
+                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.583496 4.41667H13.4168M5.16683 7.16667V14.5M8.8335 7.16667V14.5M5.16683 0.75H8.8335C9.07661 0.75 9.30977 0.846577 9.48168 1.01849C9.65359 1.19039 9.75016 1.42355 9.75016 1.66667V4.41667H4.25016V1.66667C4.25016 1.42355 4.34674 1.19039 4.51865 1.01849C4.69056 0.846577 4.92371 0.75 5.16683 0.75ZM1.50016 4.41667H12.5002V16.3333C12.5002 16.5764 12.4036 16.8096 12.2317 16.9815C12.0598 17.1534 11.8266 17.25 11.5835 17.25H2.41683C2.17371 17.25 1.94056 17.1534 1.76865 16.9815C1.59674 16.8096 1.50016 16.5764 1.50016 16.3333V4.41667Z" stroke="#E10D49" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="block-rotate__images">
+              <img class="block-rotate__image block-rotate__image_left" src="local/templates/main/assets/image/rotate/default-left.svg" alt="image left">
+              <img class="block-rotate__image block-rotate__image_center" src="local/templates/main/assets/image/rotate/center.svg" alt="image center">
+              <img class="block-rotate__image block-rotate__image_right" src="local/templates/main/assets/image/rotate/default-right.svg" alt="image right">
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="execution-type__el" data-id="3">
+          <label class="execution-type__el-row" for="">
+            <p class="text-middle">Внутренний радиус</p>
+            <input type="text">
+            <p class="text-middle">см</p>
+          </label>
+        </div>
+      </div>
+      <button class="execution-type__btn btn btn_midle" type="button">Рассчитать</button>
+    </section>
+    <section class="result result_mb">
+      <div class="result__top result__top_mb">
+        <h2 class="result__title title-midle ">
+          Результаты подбора внутрипольного конвектора
+        </h2>
+        <button class="result__btn" type="button">
+          Подбор по теплоотдаче
+        </button>
+      </div>
+      <div class="modal-result">
+        <button class="modal-result__btn-close">Отмена</button>
+        <form action="#!">
+          <div class="modal-result__body is-open" data-id="dr1">
+            <ul class="model__dropdown-list">
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">Высота</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                </select>
+                <p class="model__dropdown-item-size">см</p>
+              </li>
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">Длина</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="490">490</option>
+                  <option value="590">590</option>
+                  <option value="630">630</option>
+                  <option value="700">700</option>
+                </select>
+                <p class="model__dropdown-item-size">см</p>
+              </li>
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">Ширина</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="38">38</option>
+                  <option value="28">28</option>
+                  <option value="44">44</option>
+                  <option value="88">88</option>
+                </select>
+                <p class="model__dropdown-item-size">см</p>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-result__body" data-id="dr2">
+            <ul class="model__dropdown-list">
+              <li class="model__dropdown-item select-width">
+                <p class="model__dropdown-item-title text">Необходимая теплоотдача</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="2150">2150</option>
+                  <option value="1480">1480</option>
+                  <option value="15000">1500</option>
+                </select>
+                <p class="model__dropdown-item-size">Вт</p>
+              </li>
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">t° воды на входе</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="90">90</option>
+                  <option value="90">90</option>
+                  <option value="100">100</option>
+                </select>
+                <p class="model__dropdown-item-size"></p>
+              </li>
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">t° воды на выходе</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="80">80</option>
+                  <option value="75">75</option>
+                  <option value="80">80</option>
+                </select>
+                <p class="model__dropdown-item-size"></p>
+              </li>
+              <li class="model__dropdown-item">
+                <p class="model__dropdown-item-title text">t° в помещении</p>
+                <select class="model__dropdown-select js-example-basic-single" name="" id="">
+                  <option value="21">21</option>
+                  <option value="33">33</option>
+                  <option value="99">99</option>
+                </select>
+                <p class="model__dropdown-item-size"></p>
+              </li>
+            </ul>
+          </div>
+          <button class="modal-result__btn btn btn_midle" type="submit">Пересчитать</button>
+        </form>
+      </div>
+      <div class="result-slider">
+        <div class="swiper-wrapper">
+          <div class="result-slider__slide swiper-slide"
+            data-article="GETL0.00806018/FNA/NV"
+            data-name="Конвектор внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)"
+            data-info="114"
+            data-count="1"
+            data-price="6340.02"
+            data-id="1"
+            data-all-price="6340.02"
+          >
+            <p class="result-slider__slide-article">GETL0.00806018/FNA/NV</p>
+            <h3 class="result-slider__slide-name">
+              Конвектор<br> внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)
+            </h3>
+            <p class="result-slider__slide-text">Теплоотдача: 114 Вт</p>
+            <div class="result-slider__slide-controls">
+              <button class="result-slider__slide-minus">-</button>
+              <div class="result-slider__slide-count">1</div>
+              <button class="result-slider__slide-plus">+</button>
+            </div>
+            <p class="result-slider__slide-price">
+              <span>6 340</span> руб./шт.
+            </p>
+            <button class="result-slider__slide-btn btn btn_min" type="button">Добавить</button>
+          </div>
+          <div class="result-slider__slide swiper-slide"
+            data-article="GETL0.00806023/FNA/NV"
+            data-name="Конвектор внутрипольный Gekon Eco без решетки H08 L060 T23 (без клапана)"
+            data-info="130"
+            data-count="1"
+            data-price="19340"
+            data-id="2"
+            data-all-price="19340"
+          >
+            <p class="result-slider__slide-article">GETL0.00806023/FNA/NV</p>
+            <h3 class="result-slider__slide-name">
+              Конвектор<br> внутрипольный Gekon Eco без решетки H08 L060 T23 (без клапана)
+            </h3>
+            <p class="result-slider__slide-text">Теплоотдача: 130 Вт</p>
+            <div class="result-slider__slide-controls">
+              <button class="result-slider__slide-minus">-</button>
+              <div class="result-slider__slide-count">1</div>
+              <button class="result-slider__slide-plus">+</button>
+            </div>
+            <p class="result-slider__slide-price">
+              <span>19 340 </span>руб./шт.
+            </p>
+            <button class="result-slider__slide-btn btn btn_min" type="button">Добавить</button>
+          </div>
+          <div class="result-slider__slide swiper-slide"
+            data-article="GETL0.00806018/FNA/NV"
+            data-name="Конвектор внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)"
+            data-info="173"
+            data-count="1"
+            data-price="1119.5"
+            data-id="3"
+            data-all-price="1119.5"
+          >
+            <p class="result-slider__slide-article">GETL0.00806018/FNA/NV</p>
+            <h3 class="result-slider__slide-name">
+              Конвектор<br> внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)
+            </h3>
+            <p class="result-slider__slide-text">Теплоотдача: 173 Вт</p>
+            <div class="result-slider__slide-controls">
+              <button class="result-slider__slide-minus">-</button>
+              <div class="result-slider__slide-count">1</div>
+              <button class="result-slider__slide-plus">+</button>
+            </div>
+            <p class="result-slider__slide-price">
+              <span>1 119.5 </span>руб./шт.
+            </p>
+            <button class="result-slider__slide-btn btn btn_min" type="button">Добавить</button>
+          </div>
+          <div class="result-slider__slide swiper-slide"
+            data-article="GETL0.00806018/FNA/NV"
+            data-name="Конвектор внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)"
+            data-info="190"
+            data-count="1"
+            data-price="20350"
+            data-id="4"
+            data-all-price="20350"
+          >
+            <p class="result-slider__slide-article">GETL0.00806018/FNA/NV</p>
+            <h3 class="result-slider__slide-name">
+              Конвектор<br> внутрипольный Gekon Eco без решетки H08 L060 T18 (без клапана)
+            </h3>
+            <p class="result-slider__slide-text">Теплоотдача: 190 Вт</p>
+            <div class="result-slider__slide-controls">
+              <button class="result-slider__slide-minus">-</button>
+              <div class="result-slider__slide-count">1</div>
+              <button class="result-slider__slide-plus">+</button>
+            </div>
+            <p class="result-slider__slide-price">
+              <span>20 350 </span>руб./шт.
+            </p>
+            <button class="result-slider__slide-btn btn btn_min" type="button">Добавить</button>
+          </div>
+          <div class="swiper-slide"></div>
+        </div>
+      </div>
+    </section>
+    <section class="specification">
+      <div class="specification__top">
+        <h2 class="specification__title title-midle">Спецификация</h2>
+        <button class="specification__pdf" type="button" id="PDFBTN">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31.5 5.25H10.5V12.25H31.5M33.25 21C32.7859 21 32.3407 20.8156 32.0126 20.4874C31.6844 20.1592 31.5 19.7141 31.5 19.25C31.5 18.7859 31.6844 18.3408 32.0126 18.0126C32.3407 17.6844 32.7859 17.5 33.25 17.5C33.7141 17.5 34.1593 17.6844 34.4874 18.0126C34.8156 18.3408 35 18.7859 35 19.25C35 19.7141 34.8156 20.1592 34.4874 20.4874C34.1593 20.8156 33.7141 21 33.25 21ZM28 33.25H14V24.5H28M33.25 14H8.75C7.35761 14 6.02226 14.5531 5.03769 15.5377C4.05312 16.5223 3.5 17.8576 3.5 19.25V29.75H10.5V36.75H31.5V29.75H38.5V19.25C38.5 17.8576 37.9469 16.5223 36.9623 15.5377C35.9777 14.5531 34.6424 14 33.25 14Z" fill="#E10D49"/>
+          </svg>
+        </button>
+      </div>
+      <div class="specification__table specification__table_mb">
+        <div class="specification__table-top">
+          <div class="specification__table-top-col">№</div>
+          <div class="specification__table-top-col">Артикул</div>
+          <div class="specification__table-top-col">Наименование</div>
+          <div class="specification__table-top-col">Теплоотдача, Вт</div>
+          <div class="specification__table-top-col">Кол-во</div>
+          <div class="specification__table-top-col">Цена, руб.</div>
+          <div class="specification__table-top-col">Удалить</div>
+        </div>
+        <div class="specification__table-body">
+
+        </div>
+      </div>
+      <div class="specification__result specification__result_mb">
+        <div class="specification__result-top">
+          <p class="specification__result-info"></p>
+          <p class="specification__result-price"></p>
+        </div>
+        <a class="specification__result-link" href="#!">Технические данные</a>
+      </div>
+      <div class="specification__buttons">
+        <button class="btn_midle btn specification__btn" type="button">Скачать КП</button>
+        <button class="btn_midle btn specification__btn" type="button">Отправить менеджеру</button>
+      </div>
+    </section>
+    <section class="no-result" style="display: none;">
+      <h2 class="no-result__title title-midle">
+        Результаты подбора внутрипольного конвектора
+      </h2>
+      <p class="no-result__text">
+        По вашим параметрам ничего не найдено
+      </p>
+    </section>
+  </main>
+<footer class="footer">
+
+</footer>
+</div>
+
+<!-- pdf generate -->
+<script>
+    const BTN_PDF_GENERATOR = document.getElementById('PDFBTN');
+
+    const { jsPDF } = window.jspdf;
+    function generatePDF() {
+        const itemsTop = document.querySelectorAll('.specification__table-top-col');
+        const infoNode = document.querySelector('.specification__result-info').innerText;
+        const priceNode = document.querySelector('.specification__result-price').innerText;
+
+        let arrTitles = []; 
+        let arrRows = [];
+
+        itemsTop.forEach(itm=> {
+            arrTitles.push(itm.innerHTML);
+        });
+        document.querySelectorAll('.specification__table-body-row').forEach(row=> {
+            let secondRow = [
+                String(row.getAttribute('data-id-el')), 
+                String(row.getAttribute('data-article')), 
+                String(row.getAttribute('data-name')), 
+                String(row.getAttribute('data-info')), 
+                String(row.getAttribute('data-count')), 
+                String((Number(row.getAttribute('data-price')) * Number(row.getAttribute('data-count'))).toFixed(2))
+            ];
+            arrRows.push(secondRow)
+        });
+        const doc = new jsPDF('landscape');
+
+        console.log(arrRows)
+
+        doc.addFont('local/templates/main/assets/fonts/Montserrat-Regular.ttf', 'Montserrat', 'normal');
+        doc.setFont("Montserrat", "normal");
+
+        doc.autoTable({
+            startX: 30,
+            startY: 30,
+            theme: 'striped',
+            styles: {font: "Montserrat"},
+            columnStyles: {
+                2: {
+                    columnWidth: 100
+                }
+            },
+            head: [
+                ['№','Артикул', 'Наименование', 'Теплоотдача, Вт', 'Кол-во', 'Цена, руб.']
+            ],
+            body: arrRows,
+        });
+        doc.autoTable({
+            theme: 'striped',
+            styles: {font: "Montserrat"},
+            head: [
+                [String(infoNode),  String(priceNode)]
+            ],
+            didParseCell: function (data){
+                data.cell.styles.fontStyle = 'bold';
+                data.cell.styles.fontSize = 12;
+                if (data.section === 'head') {
+                    if(data.column.index === 1) {
+                        data.cell.styles.halign = 'right'; // Center-align text
+                    }
+                }
+            }
+        });
+        doc.save('specification.pdf');
+    }
+    BTN_PDF_GENERATOR.addEventListener('click', ()=> generatePDF());
+
+
+</script>
+</body>
+
+</html>
