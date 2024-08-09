@@ -3,6 +3,7 @@ const dropdown = ()=> {
     const parentElement = document.querySelector('.model__dropdown');
     const dropdownElements = document.querySelectorAll('.model__dropdown-el');
     const modalBody = document.querySelectorAll('.modal-result__body');
+    const img = document.querySelector('.model__picture img');
 
     const handleClick = (btn)=> {
         dropdownButtons.forEach(btn=>{
@@ -11,6 +12,8 @@ const dropdown = ()=> {
 
         btn.classList.add('is-active');
 
+        img.src = btn.getAttribute('data-url-img')
+        
         if(parentElement.classList.contains('is-active-first')) {
             parentElement.classList.remove('is-active-first');
             parentElement.classList.add('is-active-second');
