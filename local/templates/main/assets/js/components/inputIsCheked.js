@@ -1,6 +1,7 @@
 const isInputCheked = () => {
     const inputs = document.querySelectorAll('.filter__input');
     const inputsColor = document.querySelectorAll('.filter-color__item');
+    const typeBody = document.querySelectorAll('.execution-type__el');
 
     inputs.forEach(input=> {
         input.addEventListener('mouseover', ()=> {
@@ -27,6 +28,20 @@ const isInputCheked = () => {
             });
 
             parentElCurrentInput.classList.add('is-active');
+
+            if(currentInput.closest('.execution-type')) {
+                console.log(currentInput)
+                const parentEl = currentInput.closest('.filter__item');
+                typeBody.forEach(body=> {
+                    body.classList.remove('is-active');
+
+                    if(body.getAttribute('data-id') === parentEl.getAttribute('data-id')) {
+                        body.classList.add('is-active')
+                        console.log(body)
+                    }
+
+                })
+            }
         })
     });
 
@@ -46,8 +61,9 @@ const isInputCheked = () => {
 
             input.classList.add('is-active');
         });
-    })
+    });
     
+
 }
 
 export default isInputCheked;

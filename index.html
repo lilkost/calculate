@@ -256,21 +256,20 @@
             <input type="radio" class="filter__input" name="radio3">
           </label>
         </li>
-        <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/7.png) 66% 28%;" data-id="1">
+        <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/7.png) 66% 28%;" data-id="2">
           <label for="" class="filter__label">
             <input type="radio" class="filter__input" name="radio3">
           </label>
         </li>
-        <li class="filter__item" style="background: url(local/templates/main/assets/image/type/8.png) no-repeat 66% 45%;" data-id="1">
+        <li class="filter__item" style="background: url(local/templates/main/assets/image/type/8.png) no-repeat 66% 45%;" data-id="3">
           <label for="" class="filter__label">
             <input type="radio" class="filter__input" name="radio3">
           </label>
         </li>
       </ul>
       <div class="execution-type__body">
-        <div class="execution-type__el" data-id="1" style="padding: 0px 0px 20px 0px;"></div>
+        <div class="execution-type__el" data-id="1"></div>
         <div class="execution-type__el is-active" data-id="2">
-
           <div class="block-rotate">
             <div class="block-rotate__title">
               <p class="text">
@@ -281,7 +280,7 @@
               </p>
             </div>
             <div class="block-rotate__buttons">
-              <div class="block-rotate__btn" type="button">
+              <div id="blockRotateBtnOne" class="block-rotate__btn" data-count="0">
                 <div class="block-rotate__btn-state-one btn btn_min">Добавить</div>
                 <div class="block-rotate__btn-state-two">
                   <div class="block-rotate__btn-info">
@@ -290,9 +289,9 @@
                     </svg>
                   </div>
                   <div class="block-rotate__btn-counts">
-                    <button class="block-rotate__btn-count-plus">-</button>
+                    <button class="block-rotate__btn-count-minus" type="button" data-el="-">-</button>
                     <p class="block-rotate__btn-count">0°</p>
-                    <button class="block-rotate__btn-count-minus">+</button>
+                    <button class="block-rotate__btn-count-plus" type="button" data-el="+">+</button>
                   </div>
                   <button class="block-rotate__btn-delete">
                     <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,7 +300,7 @@
                   </button>
                 </div>
               </div>
-              <div class="block-rotate__btn" type="button">
+              <div id="blockRotateBtnTwo" class="block-rotate__btn" data-count="0">
                 <div class="block-rotate__btn-state-one btn btn_min">Добавить</div>
                 <div class="block-rotate__btn-state-two">
                   <div class="block-rotate__btn-info">
@@ -310,9 +309,9 @@
                     </svg>
                   </div>
                   <div class="block-rotate__btn-counts">
-                    <button class="block-rotate__btn-count-plus">-</button>
+                    <button class="block-rotate__btn-count-minus" type="button" data-el="-">-</button>
                     <p class="block-rotate__btn-count">0°</p>
-                    <button class="block-rotate__btn-count-minus">+</button>
+                    <button class="block-rotate__btn-count-plus" type="button" data-el="+">+</button>
                   </div>
                   <button class="block-rotate__btn-delete">
                     <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,14 +322,11 @@
               </div>
             </div>
             <div class="block-rotate__images">
-              <img class="block-rotate__image block-rotate__image_left" src="local/templates/main/assets/image/rotate/default-left.svg" alt="image left">
+              <img id="blockRotateImageLeft" class="block-rotate__image block-rotate__image_left" src="local/templates/main/assets/image/rotate/default-left.svg" alt="image left">
               <img class="block-rotate__image block-rotate__image_center" src="local/templates/main/assets/image/rotate/center.svg" alt="image center">
-              <img class="block-rotate__image block-rotate__image_right" src="local/templates/main/assets/image/rotate/default-right.svg" alt="image right">
+              <img id="blockRotateImageRight" class="block-rotate__image block-rotate__image_right" src="local/templates/main/assets/image/rotate/default-right.svg" alt="image right">
             </div>
           </div>
-
-
-
         </div>
         <div class="execution-type__el" data-id="3">
           <label class="execution-type__el-row" for="">
