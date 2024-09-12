@@ -3,6 +3,9 @@ const execution = () => {
     const buttonsAll = document.querySelectorAll('.block-rotate__btn');
     const btnStateOne = document.getElementById('blockRotateBtnOne');
     const btnStateTwo = document.getElementById('blockRotateBtnTwo');
+    // input's внутри кнопок
+    const firstInput =  btnStateOne.querySelector('input');
+    const secondInput =  btnStateTwo.querySelector('input');
     // кнопка добавления состояния
     const buttonsActiveState = document.querySelectorAll('.block-rotate__btn-state-one');
     // кнопка удаления состояния
@@ -11,6 +14,7 @@ const execution = () => {
     const imgLeft = document.getElementById('blockRotateImageLeft');
     const imgRight = document.getElementById('blockRotateImageRight');
     const parentImage = document.querySelector('.block-rotate__images');
+
     // ссылки на картинки
     const srcImages = {
         defaultLeft: 'local/templates/main/assets/image/rotate/default-left.svg',
@@ -43,8 +47,9 @@ const execution = () => {
             parentImage.classList.add('pt');
             buttonsAll.forEach(btn=> {
                 btn.classList.add('top');
-            })
-        }else {
+            });
+        }
+        else {
             parentImage.classList.remove('pt');
             buttonsAll.forEach(btn=> {
                 btn.classList.remove('top');
@@ -101,7 +106,7 @@ const execution = () => {
 
                 currentCount -= 1;
                 if(currentCount <= -91) return;
-                count.innerHTML = `${currentCount * -1}`;
+                count.value = `${currentCount * -1}`;
                 parent.setAttribute('data-count', currentCount);
                 imgLeft.style.transform = `rotate(${currentCount}deg)`;
             }
@@ -109,8 +114,8 @@ const execution = () => {
                 let currentCount = Number(parent.getAttribute('data-count'));
                 console.log('two')
                 currentCount += 1;
-                if(currentCount >=   91) return;
-                count.innerHTML = `${currentCount}`;
+                if(currentCount >= 91) return;
+                count.value = `${currentCount}`;
                 parent.setAttribute('data-count', currentCount);
                 imgRight.style.transform = `rotate(${currentCount}deg)`;
             }
@@ -122,7 +127,7 @@ const execution = () => {
 
                 currentCount += 1;
                 if(currentCount >= 91) return;
-                count.innerHTML = `${currentCount * -1}`;
+                count.value = `${currentCount * -1}`;
                 parent.setAttribute('data-count', currentCount);
                 imgLeft.style.transform = `rotate(${currentCount}deg)`;
             }
@@ -132,7 +137,7 @@ const execution = () => {
 
                 currentCount -= 1;
                 if(currentCount <= -91) return;
-                count.innerHTML = `${currentCount}`;
+                count.value = `${currentCount}`;
                 parent.setAttribute('data-count', currentCount);
                 imgRight.style.transform = `rotate(${currentCount}deg)`;
             }
@@ -151,10 +156,72 @@ const execution = () => {
         const parent = btn;
         const btnMinusNode = btn.querySelector('.block-rotate__btn-count-minus');
         const btnPlusNode = btn.querySelector('.block-rotate__btn-count-plus');
-        const countNode = btn.querySelector('.block-rotate__btn-count');
+        const countNode = btn.querySelector('.block-rotate__btn-count input');
 
         handleRotateImage(parent, btnMinusNode, btnPlusNode, countNode);
-    })
+    });
+
+    // Изменение через input
+    const changeValueInput = (num, parent) => {
+        // работа с левыми эллементами
+        if(parent === btnStateOne) {
+            if(num > 90) {
+                num = 90;
+            }
+
+            if(num < -90) {
+                num = -90;
+            }
+
+            
+
+            
+            console.log(num);
+
+            console.log(btnStateOne.getAttribute('data-count'))
+            // btnStateOne.setAttribute('data-count', num);
+            
+            // btnStateOne.setAttribute('data-count', num);
+
+            // if(num > 0) {
+            //     num = num * -1;
+            // }
+            // else {
+            //     num = num;
+            // }
+
+            firstInput.value = num;
+            btnStateOne.setAttribute('data-count', num);
+            imgLeft.style.transform = `rotate(${num}deg)`;
+        }
+        // работа с правыми эллементами
+        if(parent === btnStateTwo) {
+            if(num > 90) {
+                num = 90;
+            }
+
+            if(num < -90) {
+                num = -90;
+            }
+
+            secondInput.value = num;
+            
+            btnStateTwo.setAttribute('data-count', num);
+            imgRight.style.transform = `rotate(${num}deg)`;
+        }
+
+        checkIndent();
+    }
+
+    firstInput.addEventListener("input", (e)=> {
+        const currentNumber = Number(e.target.value);
+        changeValueInput(currentNumber, btnStateOne);
+    });
+
+    secondInput.addEventListener("input", (e)=> {
+        const currentNumber = Number(e.target.value);
+        changeValueInput(currentNumber, btnStateTwo);
+    });
 }
 
 export default execution;
