@@ -6,6 +6,7 @@ import slider from "./components/slider.js";
 import modal from "./components/modal.js";
 import calculate from "./components/calculate.js";
 import execution from "./components/execution.js";
+import buttonReset from "./components/buttonReset.js";
 
 createSelect();
 modelFilter();
@@ -15,3 +16,4 @@ slider();
 modal();
 calculate();
 execution();
+buttonReset();
