@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,11 +19,11 @@
 <div class="wrapper">
     <header class="haeder">
     </header>
-  <main class="main container">
-    <h1 class="main-title page-title page-title__pt page-title__pb page-title__pl">
+<main class="main container">
+  <h1 class="main-title page-title page-title__pt page-title__pb page-title__pl">
       Программа подбора внутрипольных конвекторов
-    </h1>
-    <section class="model model_mb">
+  </h1>
+  <section class="model model_mb">
       <div class="model__inner">
         <div class="model__box">
           <div class="model__box-top">
@@ -40,11 +39,23 @@
           </div>
           <div class="model__dropdown is-active-first">
             <div class="model__dropdown-top">
-              <button class="model__dropdown-btn is-active" type="button" data-id-body="dr1" data-url-img="local/templates/main/assets/image/top.png">
-                <span>Подбор по габаритам</span>
+              <button 
+                class="model__dropdown-btn is-active" 
+                type="button" 
+                data-id-body="dr1"
+                data-button-id="dr1"
+                data-url-img="local/templates/main/assets/image/top.png"
+              >
+                <span>Габариты </span>
               </button>
-              <button class="model__dropdown-btn" type="button" data-id-body="dr2" data-url-img="local/templates/main/assets/image/top2.png">
-                <span>Подбор по теплоотдаче</span>
+              <button 
+                class="model__dropdown-btn" 
+                type="button" 
+                data-id-body="dr2"
+                data-button-id="dr2"
+                data-url-img="local/templates/main/assets/image/top2.png"
+              >
+                <span>Теплоотдача</span>
               </button>
             </div>
             <div class="model__dropdown-body">
@@ -128,125 +139,184 @@
         <picture class="model__picture">
           <img src="local/templates/main/assets/image/top.png" alt="">
         </picture>
+        <div>
+          <div class="model__texts is-active" data-id-text="dr1">
+          1 Полностью адаптирован для российских центральных систем отопления;
+          <ul>
+            <li>Рабочее давление 16 бар;</li>
+            <li>Давление гидравлических испытаний 25 бар;</li>
+            <li>Макс. температура теплоносителя 110 °С;</li>
+            <li>Подключение G 1/2" ВР;</li>
+            <li>Межосевое расстояние 50 мм.</li>
+          </ul>
+        </div>
+        <div class="model__texts" data-id-text="dr2">
+          2 Полностью адаптирован для российских центральных систем отопления;
+          <ul>
+            <li>Рабочее давление 16 бар;</li>
+            <li>Давление гидравлических испытаний 25 бар;</li>
+            <li>Макс. температура теплоносителя 110 °С;</li>
+            <li>Подключение G 1/2" ВР;</li>
+            <li>Межосевое расстояние 50 мм.</li>
+          </ul>
+        </div>
+        </div>
       </div>
-    </section>
-    <!-- type -->
-    <section class="grille-type grille-type_mb">
+  </section>
+  <!-- type -->
+  <section class="grille-type grille-type_mb">
       <h2 class="title grille-type__title">Тип решетки</h2>
-      <div class="filter">
+      <div class="grille-type__inner">
         <ul class="filter__list">
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/1.png);">
+          <li class="filter__item grille-type__item" data-id="gr1" style="background-image: url(local/templates/main/assets/image/type/1.png);">
             <label for="" class="filter__label">
               <input type="radio" class="filter__input" name="radio1">
             </label>
           </li>
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/2.png);">
+          <li class="filter__item grille-type__item" data-id="gr2" style="background-image: url(local/templates/main/assets/image/type/2.png);">
             <label for="" class="filter__label">
               <input type="radio" class="filter__input" name="radio1">
             </label>
           </li>
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/3.png);">
+          <li class="filter__item grille-type__item" data-id="gr3" style="background-image: url(local/templates/main/assets/image/type/3.png);">
             <label for="" class="filter__label" >
               <input type="radio" class="filter__input" name="radio1">
             </label>
           </li>
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/4.png); ">
+          <li class="filter__item grille-type__item" data-id="gr4" style="background-image: url(local/templates/main/assets/image/type/4.png); ">
             <label for="" class="filter__label">
               <input type="radio" class="filter__input" name="radio1">
             </label>
           </li>
-          <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
+          <li class="filter__item grille-type__item is-active" data-id="grDisabled" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
             <label for="" class="filter__label" >
               <input type="radio" class="filter__input" name="radio1">
             </label>
           </li>
         </ul>
+        <div>
+          <div class="grille-type__texts" data-id-text="gr1">
+            "В основе решётки лежат ламели из скошенного равностороннего профиля, которые собираются на оцинкованную пружину. В качестве втулок используется трубка из анодированного алюминия в цвет решётки алюминия."
+          </div>
+          <div class="grille-type__texts" data-id-text="gr2">
+            "2 В основе решётки лежат ламели из скошенного равностороннего профиля, которые собираются на оцинкованную пружину. В качестве втулок используется трубка из анодированного алюминия в цвет решётки алюминия."
+          </div>
+          <div class="grille-type__texts" data-id-text="gr3">
+            "3 В основе решётки лежат ламели из скошенного равностороннего профиля, которые собираются на оцинкованную пружину. В качестве втулок используется трубка из анодированного алюминия в цвет решётки алюминия."
+          </div>
+          <div class="grille-type__texts" data-id-text="gr4">
+            "4 В основе решётки лежат ламели из скошенного равностороннего профиля, которые собираются на оцинкованную пружину. В качестве втулок используется трубка из анодированного алюминия в цвет решётки алюминия."
+          </div>
+        </div>
+        <div>
+          <img class="grille-type__images" data-id-img="gr1" src="local/templates/main/assets/image/grille-type.png" alt="Тип решетки">
+          <img class="grille-type__images" data-id-img="gr2" src="local/templates/main/assets/image/grille-type.png" alt="Тип решетки">
+          <img class="grille-type__images" data-id-img="gr3" src="local/templates/main/assets/image/grille-type.png" alt="Тип решетки">
+          <img class="grille-type__images" data-id-img="gr4" src="local/templates/main/assets/image/grille-type.png" alt="Тип решетки">
+        </div>
       </div>
-    </section>
-    <section class="frame-type frame-type_mb">
+      <div class="filter">
+      </div>
+  </section>
+  <section class="frame-type frame-type_mb">
       <h2 class="title frame-type__title">Тип рамки</h2>
-      <div class="filter">
-        <ul class="filter__list">
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/5.png);">
-            <label for="" class="filter__label">
-              <input type="radio" class="filter__input" name="radio2">
-            </label>
-          </li>
-          <li class="filter__item" style="background-image: url(local/templates/main/assets/image/type/6.png);">
-            <label for="" class="filter__label">
-              <input type="radio" class="filter__input" name="radio2">
-            </label>
-          </li>
-          <li class="filter__item is-active" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
-            <label for="" class="filter__label">
-              <input type="radio" class="filter__input" name="radio2">
-            </label>
-          </li>
-        </ul>
+      <div class="frame-type__inner">
+        <div class="filter">
+          <ul class="filter__list">
+            <li class="filter__item frame-type__item" data-id="tr1" style="background-image: url(local/templates/main/assets/image/type/5.png);">
+              <label for="" class="filter__label">
+                <input type="radio" class="filter__input" name="radio2">
+              </label>
+            </li>
+            <li class="filter__item frame-type__item" data-id="tr2" style="background-image: url(local/templates/main/assets/image/type/6.png);">
+              <label for="" class="filter__label">
+                <input type="radio" class="filter__input" name="radio2">
+              </label>
+            </li>
+            <li class="filter__item frame-type__item is-active" data-id="trDisabled" style="background: url(local/templates/main/assets/image/type/disabled.png) 66% 28%;">
+              <label for="" class="filter__label">
+                <input type="radio" class="filter__input" name="radio2">
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="frame-type__text" data-id-text="tr1">Из анодированного алюминия натурального цвета</div>
+          <div class="frame-type__text" data-id-text="tr2">2 Из анодированного алюминия натурального цвета</div>
+        </div>
+        <div>
+          <img src="local/templates/main/assets/image/grille-type.png" data-id-img="tr1" class="frame-type__img" alt="Тип рамки">
+          <img src="local/templates/main/assets/image/grille-type.png" data-id-img="tr2" class="frame-type__img" alt="Тип рамки">
+        </div>
       </div>
-    </section>
-    <section class="color-type color-type_mb">
+  </section>
+  <section class="color-type color-type_mb">
       <h2 class="title color-type__title">Цвет решетки и рамки конвектора</h2>
-      <div class="filter-color">
-        <ul class="filter-color__list">
-          <li class="filter-color__item is-active">
-            <label for="">
-              <div class="filter-color__item-decor" style="--bg: #3C3C3C">BL</div>
-              <p class="filter-color__item-name">черный</p>
-              <input type="radio" name="rdColor1">
-            </label>
-          </li>
-          <li class="filter-color__item">
-            <label for="">
-              <div class="filter-color__item-decor" style="--bg: #5A443F">DB</div>
-              <p class="filter-color__item-name">
-                темно-<br>коричневый
-              </p>
-              <input type="radio" name="rdColor2">
-            </label>
-          </li>
-          <li class="filter-color__item">
-            <label for="">
-              <div class="filter-color__item-decor" style="--bg: #8C754F">BR</div>
-              <p class="filter-color__item-name">
-                латунь/темное<br> золото
-              </p>
-              <input type="radio" name="rdColor3">
-            </label>
-          </li>
-          <li class="filter-color__item">
-            <label for="">
-              <div class="filter-color__item-decor" style="--bg: #96907B">LB</div>
-              <p class="filter-color__item-name">
-                светлая бронза/<br>шампань
-              </p>
-              <input type="radio" name="rdColor4">
-            </label>
-          </li>
-          <li class="filter-color__item">
-            <label for="">
-              <div class="filter-color__item-decor" style="--bg: #A5A6A5">NA</div>
-              <p class="filter-color__item-name">
-                натуральный<br>алюминий
-              </p>
-              <input type="radio" name="rdColor5">
-            </label>
-          </li>
-          <li class="filter-color__item filter-color__item_input">
-            <div class="filter-color__item-decor filter-color__item-decor_two-el" style="--bg: #ECECEC">
-              RAL
-              <input type="text">
-            </div>
-            <label for="mat1" class="filter-color__label">
-              <input id="mat1" type="checkbox" class="filter-color__input">
-              <div class="filter-color__input-decor"></div>
-              <p class="filter-color__input-title">матовое</p>
-            </label>
-          </li>
-        </ul>
+      <div class="filter-color__inner">
+        <div class="filter-color">
+          <ul class="filter-color__list">
+            <li class="filter-color__item is-active" data-color="BL" data-name-color="черного">
+              <label for="">
+                <div class="filter-color__item-decor" style="--bg: #3C3C3C">BL</div>
+                <p class="filter-color__item-name">черный</p>
+                <input type="radio" name="rdColor1">
+              </label>
+            </li>
+            <li class="filter-color__item" data-color="DB" data-name-color="темно-коричневого">
+              <label for="">
+                <div class="filter-color__item-decor" style="--bg: #5A443F">DB</div>
+                <p class="filter-color__item-name">
+                  темно-<br>коричневый
+                </p>
+                <input type="radio" name="rdColor2">
+              </label>
+            </li>
+            <li class="filter-color__item" data-color="BR" data-name-color="латунного/темно-золотого">
+              <label for="">
+                <div class="filter-color__item-decor" style="--bg: #8C754F">BR</div>
+                <p class="filter-color__item-name">
+                  латунь/темное<br> золото
+                </p>
+                <input type="radio" name="rdColor3">
+              </label>
+            </li>
+            <li class="filter-color__item" data-color="LB" data-name-color="светлой бронзы/шампань">
+              <label for="">
+                <div class="filter-color__item-decor" style="--bg: #96907B">LB</div>
+                <p class="filter-color__item-name">
+                  светлая бронза/<br>шампань
+                </p>
+                <input type="radio" name="rdColor4">
+              </label>
+            </li>
+            <li class="filter-color__item" data-color="NA" data-name-color="натурального алюминия">
+              <label for="">
+                <div class="filter-color__item-decor" style="--bg: #A5A6A5">NA</div>
+                <p class="filter-color__item-name">
+                  натуральный<br>алюминий
+                </p>
+                <input type="radio" name="rdColor5">
+              </label>
+            </li>
+            <li class="filter-color__item filter-color__item_input">
+              <div class="filter-color__item-decor filter-color__item-decor_two-el" style="--bg: #ECECEC">
+                RAL
+                <input type="text">
+              </div>
+              <label for="mat1" class="filter-color__label">
+                <input id="mat1" type="checkbox" class="filter-color__input">
+                <div class="filter-color__input-decor"></div>
+                <p class="filter-color__input-title">матовое</p>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="filter-color__texts">
+          Анодированное покрытие чёрного цвета: BL
+        </div>
       </div>
-    </section>
-    <section class="execution-type execution-type_mb">
+  </section>
+  <section class="execution-type execution-type_mb">
       <h2 class="title execution-type__title">
         Нестандартное исполнение
       </h2>
@@ -341,54 +411,20 @@
         </div>
       </div>
       <button class="execution-type__btn btn btn_midle" type="button">Рассчитать</button>
-    </section>
-    <section class="result result_mb">
+  </section>
+  <section class="result result_mb">
       <div class="result__top result__top_mb">
         <h2 class="result__title title-midle ">
           Результаты подбора внутрипольного конвектора
         </h2>
         <button class="result__btn" type="button">
-          Подбор по теплоотдаче
+          Изменить параметры теплоносителя
         </button>
       </div>
       <div class="modal-result">
         <button class="modal-result__btn-close">Отмена</button>
         <form action="#!">
-          <div class="modal-result__body is-open" data-id="dr1">
-            <ul class="model__dropdown-list">
-              <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">Высота</p>
-                <select class="model__dropdown-select js-example-basic-single" name="" id="">
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                  <option value="40">40</option>
-                </select>
-                <p class="model__dropdown-item-size">см</p>
-              </li>
-              <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">Длина</p>
-                <select class="model__dropdown-select js-example-basic-single" name="" id="">
-                  <option value="490">490</option>
-                  <option value="590">590</option>
-                  <option value="630">630</option>
-                  <option value="700">700</option>
-                </select>
-                <p class="model__dropdown-item-size">см</p>
-              </li>
-              <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">Ширина</p>
-                <select class="model__dropdown-select js-example-basic-single" name="" id="">
-                  <option value="38">38</option>
-                  <option value="28">28</option>
-                  <option value="44">44</option>
-                  <option value="88">88</option>
-                </select>
-                <p class="model__dropdown-item-size">см</p>
-              </li>
-            </ul>
-          </div>
-          <div class="modal-result__body" data-id="dr2">
+          <div class="modal-result__body is-open" data-id="dr2">
             <ul class="model__dropdown-list">
               <li class="model__dropdown-item select-width">
                 <p class="model__dropdown-item-title text">Необходимая теплоотдача</p>
@@ -531,8 +567,8 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="specification">
+  </section>
+  <section class="specification">
       <div class="specification__top">
         <h2 class="specification__title title-midle">Спецификация</h2>
         <button class="specification__pdf" type="button" id="PDFBTN">
@@ -566,16 +602,16 @@
         <button class="btn_midle btn specification__btn" type="button">Скачать КП</button>
         <button class="btn_midle btn specification__btn" type="button">Отправить менеджеру</button>
       </div>
-    </section>
-    <section class="no-result" style="display: none;">
+  </section>
+  <section class="no-result" style="display: none;">
       <h2 class="no-result__title title-midle">
         Результаты подбора внутрипольного конвектора
       </h2>
       <p class="no-result__text">
         По вашим параметрам ничего не найдено
       </p>
-    </section>
-  </main>
+  </section>
+</main>
 <footer class="footer">
 
 </footer>
