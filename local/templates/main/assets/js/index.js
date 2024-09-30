@@ -7,6 +7,7 @@ import modal from "./components/modal.js";
 import calculate from "./components/calculate.js";
 import execution from "./components/execution.js";
 import buttonReset from "./components/buttonReset.js";
+import changeTypeFn from "./components/typeGrille.js";
 
 createSelect();
 modelFilter();
@@ -17,3 +18,4 @@ modal();
 calculate();
 execution();
 buttonReset();
+changeTypeFn();

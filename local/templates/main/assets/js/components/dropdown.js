@@ -4,8 +4,11 @@ const dropdown = ()=> {
     const dropdownElements = document.querySelectorAll('.model__dropdown-el');
     const modalBody = document.querySelectorAll('.modal-result__body');
     const img = document.querySelector('.model__picture img');
+    const blockText = document.querySelectorAll('.model__texts');
 
     const handleClick = (btn)=> {
+        const dataID = btn.getAttribute('data-button-id');
+
         dropdownButtons.forEach(btn=>{
             btn.classList.remove('is-active');
         });
@@ -34,16 +37,25 @@ const dropdown = ()=> {
         modalBody.forEach(el=> {
             el.classList.remove('is-open');
 
-
             if(el.getAttribute('data-id') === btn.getAttribute('data-id-body')) {
                 el.classList.add('is-open');
             }
-        })
+        });
+        blockText.forEach(block=>{
+            const blockID = block.getAttribute('data-id-text');
+
+            if(blockID === dataID) {
+                block.classList.add('is-active');
+            } 
+            else {
+                block.classList.remove('is-active');
+            }
+        });
     }
 
     dropdownButtons.forEach(btn=> {
         btn.addEventListener('click', ()=> handleClick(btn));
-    })
+    });
 }
 
 export default dropdown;
