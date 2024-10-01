@@ -3,7 +3,7 @@ const dropdown = ()=> {
     const parentElement = document.querySelector('.model__dropdown');
     const dropdownElements = document.querySelectorAll('.model__dropdown-el');
     const modalBody = document.querySelectorAll('.modal-result__body');
-    const img = document.querySelector('.model__picture img');
+    const imgs = document.querySelectorAll('.model__picture-img');
     const blockText = document.querySelectorAll('.model__texts');
 
     const handleClick = (btn)=> {
@@ -15,8 +15,18 @@ const dropdown = ()=> {
 
         btn.classList.add('is-active');
 
-        img.src = btn.getAttribute('data-url-img')
+        // img.src = btn.getAttribute('data-url-img')
         
+        imgs.forEach(img=> {
+            const imgId = img.getAttribute('data-id-img');
+
+            if(imgId === dataID) {
+                img.classList.add('is-active');
+            }else {
+                img.classList.remove('is-active');
+            }
+        });
+
         if(parentElement.classList.contains('is-active-first')) {
             parentElement.classList.remove('is-active-first');
             parentElement.classList.add('is-active-second');
