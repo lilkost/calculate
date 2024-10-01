@@ -38,7 +38,7 @@ const calculate = () => {
             allCount+=Number(row.getAttribute('data-count'));
             allInfo+=Number(row.getAttribute('data-info')) * Number(row.getAttribute('data-count'));
         });
-        infoNode.innerHTML = `Итого: ${numberWithSpaces(allCount)} шт. общей теплоотдачей ${numberWithSpaces(allInfo)} Вт`;
+        infoNode.innerHTML = `Итого: ${numberWithSpaces(allCount)} шт. общей теплоотдачей ${numberWithSpaces(allInfo)} Вт.`;
         priceNode.innerHTML = `${numberWithSpaces(allPrice.toFixed(2))} руб.`;
     }
 
