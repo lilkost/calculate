@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calc</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.js"></script>
     <script src="local/templates/main/assets/js/Montserrat-Regular-normal.js"></script>
-    <script src="local/templates/main/assets/js/libs.min.js" defer></script>
+    <script src="local/templates/main/assets/js/libs.min.js"></script>
     <script src="local/templates/main/assets/js/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactiveimagejs@2.7.1/dist/interactive-image.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/interactiveimagejs@2.7.1/dist/interactive-image.min.css" />
     <link rel="stylesheet" href="local/templates/main/assets/css/style.min.css">
     <link rel="stylesheet" href="local/templates/main/assets/css/media.min.css">
 </head>
@@ -44,7 +46,6 @@
                 type="button" 
                 data-id-body="dr1"
                 data-button-id="dr1"
-                data-url-img="local/templates/main/assets/image/top.png"
               >
                 <span>Габариты </span>
               </button>
@@ -53,7 +54,6 @@
                 type="button" 
                 data-id-body="dr2"
                 data-button-id="dr2"
-                data-url-img="local/templates/main/assets/image/top2.png"
               >
                 <span>Теплоотдача</span>
               </button>
@@ -136,9 +136,14 @@
             </div>
           </div>
         </div>
-        <picture class="model__picture">
-          <img src="local/templates/main/assets/image/top.png" alt="">
-        </picture>
+        <div class="model__picture">
+          <div class="model__picture-img is-active" data-id-img="dr1" id="img1">
+            <img src="local/templates/main/assets/image/top.png">
+          </div>
+          <div class="model__picture-img" data-id-img="dr2" id="img2">
+            <img src="local/templates/main/assets/image/top2.png">
+          </div>
+        </div>
         <div>
           <div class="model__texts is-active" data-id-text="dr1">
           1 Полностью адаптирован для российских центральных систем отопления;
@@ -163,7 +168,6 @@
         </div>
       </div>
   </section>
-  <!-- type -->
   <section class="grille-type grille-type_mb">
       <h2 class="title grille-type__title">Тип решетки</h2>
       <div class="grille-type__inner">
@@ -612,6 +616,106 @@
       </p>
   </section>
 </main>
+<script>
+  const itemsOneEl = [
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 100,
+        top: 50
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 100,
+        top: 100
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 150,
+        top: 150
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 200,
+        top: 200
+      }
+    },
+  ];
+  const itemsTwoEl = [
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 40,
+        top: 98
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 100,
+        top: 100
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 150,
+        top: 150
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 250,
+        top: 145
+      }
+    },
+  ];
+
+  const options = {
+    allowHtml: true,
+    shareBox: false,
+    customClassName: 'dots-interactive-image'
+  }
+
+  $("#img1").interactiveImage(itemsOneEl, options);
+  $("#img2").interactiveImage(itemsTwoEl, options);
+
+  const setCountForDotsFn = (items = []) => {
+    items.forEach((item, key)=> {
+      item.innerHTML = key + 1;
+    });
+  }
+  setTimeout(()=> {
+    const itemsOne = document.querySelectorAll('#img1.interactive-image .hotspot');
+    const itemsTwo = document.querySelectorAll('#img2.interactive-image .hotspot');
+
+    setCountForDotsFn(itemsOne);
+    setCountForDotsFn(itemsTwo);
+  }, 200);
+</script>
 <footer class="footer">
 
 </footer>
