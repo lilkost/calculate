@@ -26,14 +26,25 @@ const dropdown = ()=> {
                 img.classList.remove('is-active');
             }
         });
+        
+        // if(parentElement.classList.contains('is-active-first')) {
+        //     parentElement.classList.remove('is-active-first');
+        //     parentElement.classList.add('is-active-second');
+        // } 
+        // else if (parentElement.classList.contains('is-active-second')) {
+        //     parentElement.classList.add('is-active-first');
+        //     parentElement.classList.remove('is-active-second');
+        // }
 
-        if(parentElement.classList.contains('is-active-first')) {
-            parentElement.classList.remove('is-active-first');
-            parentElement.classList.add('is-active-second');
-        } 
-        else if (parentElement.classList.contains('is-active-second')) {
+        const dataParentClass = btn.getAttribute('data-parrent-class');
+
+        if(dataParentClass === 'is-active-first') {
             parentElement.classList.add('is-active-first');
             parentElement.classList.remove('is-active-second');
+        }
+        else {
+            parentElement.classList.remove('is-active-first');
+            parentElement.classList.add('is-active-second');
         }
 
         dropdownElements.forEach(el=> {
