@@ -97,7 +97,7 @@ const calculate = () => {
                     if(card.getAttribute('data-id') === item.getAttribute('data-id')) {
                         card.setAttribute('data-all-price', currentPrice);
                         card.setAttribute('data-count', curentItemValue);
-                        card.querySelector('.result-slider__slide-count').innerHTML = curentItemValue;
+                        card.querySelector('.result-slider__slide-count').value = curentItemValue;
                         card.querySelector('.result-slider__slide-price span').innerHTML = numberWithSpaces(currentPrice);
                     }
                 });
@@ -204,7 +204,28 @@ const calculate = () => {
             // изменение инпута
             setValueAndCountInputForItems(itm, currentCount, currentPrice);
         });
+        countNode.addEventListener("input", (e)=> {
+            let val = Number(e.target.value);
 
+            if(val <= 0) {
+                val = 1;
+                countNode.value = val;
+            }
+
+            let currentCount = val;
+            let price = Number(itm.getAttribute('data-price'));
+            const nodePrice = itm.querySelector('.result-slider__slide-price span');
+
+            itm.setAttribute('data-count', currentCount);
+            
+            // price
+            const currentPrice = (price * currentCount).toFixed(2);
+            itm.setAttribute('data-all-price', currentPrice);
+            nodePrice.innerHTML = numberWithSpaces(currentPrice);
+
+            // изменение инпута
+            setValueAndCountInputForItems(itm, currentCount, currentPrice);
+        });
         // добавить в таблицу элемент
         addBtn.addEventListener('click', ()=> {
             addItemToTable(itm);
