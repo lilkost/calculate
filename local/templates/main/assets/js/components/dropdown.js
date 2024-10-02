@@ -4,7 +4,6 @@ const dropdown = ()=> {
     const dropdownElements = document.querySelectorAll('.model__dropdown-el');
     const modalBody = document.querySelectorAll('.modal-result__body');
     const imgs = document.querySelectorAll('.model__picture-img');
-    const blockText = document.querySelectorAll('.model__texts');
 
     const handleClick = (btn)=> {
         const dataID = btn.getAttribute('data-button-id');
@@ -62,16 +61,7 @@ const dropdown = ()=> {
                 el.classList.add('is-open');
             }
         });
-        blockText.forEach(block=>{
-            const blockID = block.getAttribute('data-id-text');
 
-            if(blockID === dataID) {
-                block.classList.add('is-active');
-            } 
-            else {
-                block.classList.remove('is-active');
-            }
-        });
     }
 
     dropdownButtons.forEach(btn=> {

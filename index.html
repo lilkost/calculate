@@ -33,11 +33,11 @@
             <button class="model__btn-reset" type="button text">Сбросить</button>
           </div>
           <div class="model__filter model__filter_mb">
-            <button class="model__filter-btn model__filter-btn_all"><span>Любая</span></button>
-            <button class="model__filter-btn"><span>ECO</span></button>
-            <button class="model__filter-btn"><span>VENT</span></button>
-            <button class="model__filter-btn is-active"><span>Level F</span></button>
-            <button class="model__filter-btn"><span>Level W</span></button>
+            <button class="model__filter-btn is-active model__filter-btn_all" data-id-text="all"><span>Любая</span></button>
+            <button class="model__filter-btn" data-id-text="dr1"><span>ECO</span></button>
+            <button class="model__filter-btn" data-id-text="dr2"><span>VENT</span></button>
+            <button class="model__filter-btn" data-id-text="dr3"><span>Level F</span></button>
+            <button class="model__filter-btn" data-id-text="dr4"><span>Level W</span></button>
           </div>
           <div class="model__dropdown is-active-first">
             <div class="model__dropdown-top">
@@ -147,26 +147,46 @@
           </div>
         </div>
         <div>
-          <div class="model__texts is-active" data-id-text="dr1">
-          1 Полностью адаптирован для российских центральных систем отопления;
-          <ul>
-            <li>Рабочее давление 16 бар;</li>
-            <li>Давление гидравлических испытаний 25 бар;</li>
-            <li>Макс. температура теплоносителя 110 °С;</li>
-            <li>Подключение G 1/2" ВР;</li>
-            <li>Межосевое расстояние 50 мм.</li>
-          </ul>
-        </div>
-        <div class="model__texts" data-id-text="dr2">
-          2 Полностью адаптирован для российских центральных систем отопления;
-          <ul>
-            <li>Рабочее давление 16 бар;</li>
-            <li>Давление гидравлических испытаний 25 бар;</li>
-            <li>Макс. температура теплоносителя 110 °С;</li>
-            <li>Подключение G 1/2" ВР;</li>
-            <li>Межосевое расстояние 50 мм.</li>
-          </ul>
-        </div>
+          <div class="model__texts" data-text-id="dr1">
+            ECO Полностью адаптирован для российских центральных систем отопления;
+            <ul>
+              <li>Рабочее давление 16 бар;</li>
+              <li>Давление гидравлических испытаний 25 бар;</li>
+              <li>Макс. температура теплоносителя 110 °С;</li>
+              <li>Подключение G 1/2" ВР;</li>
+              <li>Межосевое расстояние 50 мм.</li>
+            </ul>
+          </div>
+          <div class="model__texts" data-text-id="dr2">
+            VENT Полностью адаптирован для российских центральных систем отопления;
+            <ul>
+              <li>Рабочее давление 16 бар;</li>
+              <li>Давление гидравлических испытаний 25 бар;</li>
+              <li>Макс. температура теплоносителя 110 °С;</li>
+              <li>Подключение G 1/2" ВР;</li>
+              <li>Межосевое расстояние 50 мм.</li>
+            </ul>
+          </div>
+          <div class="model__texts" data-text-id="dr3">
+            LEVEL F Полностью адаптирован для российских центральных систем отопления;
+            <ul>
+              <li>Рабочее давление 16 бар;</li>
+              <li>Давление гидравлических испытаний 25 бар;</li>
+              <li>Макс. температура теплоносителя 110 °С;</li>
+              <li>Подключение G 1/2" ВР;</li>
+              <li>Межосевое расстояние 50 мм.</li>
+            </ul>
+          </div>
+          <div class="model__texts" data-text-id="dr4">
+            LEVEL W Полностью адаптирован для российских центральных систем отопления;
+            <ul>
+              <li>Рабочее давление 16 бар;</li>
+              <li>Давление гидравлических испытаний 25 бар;</li>
+              <li>Макс. температура теплоносителя 110 °С;</li>
+              <li>Подключение G 1/2" ВР;</li>
+              <li>Межосевое расстояние 50 мм.</li>
+            </ul>
+          </div>
         </div>
       </div>
   </section>
@@ -432,7 +452,7 @@
         <form action="#!">
           <div class="modal-result__body is-open" data-id="dr2">
             <ul class="model__dropdown-list">
-              <li class="model__dropdown-item select-width">
+              <!-- <li class="model__dropdown-item select-width">
                 <p class="model__dropdown-item-title text">Необходимая теплоотдача</p>
                 <select class="model__dropdown-select js-example-basic-single" name="" id="">
                   <option value="2150">2150</option>
@@ -440,9 +460,9 @@
                   <option value="15000">1500</option>
                 </select>
                 <p class="model__dropdown-item-size">Вт</p>
-              </li>
+              </li> -->
               <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">t° воды на входе</p>
+                <p class="model__dropdown-item-title text">t° температура подачи</p>
                 <select class="model__dropdown-select js-example-basic-single" name="" id="">
                   <option value="90">90</option>
                   <option value="90">90</option>
@@ -451,7 +471,7 @@
                 <p class="model__dropdown-item-size"></p>
               </li>
               <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">t° воды на выходе</p>
+                <p class="model__dropdown-item-title text">t° температура обратки</p>
                 <select class="model__dropdown-select js-example-basic-single" name="" id="">
                   <option value="80">80</option>
                   <option value="75">75</option>
@@ -460,7 +480,7 @@
                 <p class="model__dropdown-item-size"></p>
               </li>
               <li class="model__dropdown-item">
-                <p class="model__dropdown-item-title text">t° в помещении</p>
+                <p class="model__dropdown-item-title text">t° температура в помещении</p>
                 <select class="model__dropdown-select js-example-basic-single" name="" id="">
                   <option value="21">21</option>
                   <option value="33">33</option>
@@ -635,7 +655,25 @@
       description: "<b>Text item</b> with description.",
       position: {
         left: 100,
-        top: 100
+        top: 106
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 182,
+        top: 122,
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 95,
+        top: 170
       }
     },
     {
@@ -644,7 +682,16 @@
       description: "<b>Text item</b> with description.",
       position: {
         left: 150,
-        top: 150
+        top: 180
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 100,
+        top: 220
       }
     },
     {
@@ -654,6 +701,24 @@
       position: {
         left: 200,
         top: 200
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 280,
+        top: 211
+      }
+    },
+    {
+      type: "text",
+      title: "Text title",
+      description: "<b>Text item</b> with description.",
+      position: {
+        left: 196,
+        top: 259
       }
     },
   ];
@@ -710,12 +775,35 @@
       item.innerHTML = key + 1;
     });
   }
+  const changeBlockStatus = (items = [], itemsOneBody = []) => {
+    items.forEach(item=> {
+      item.addEventListener("mouseout", ()=> {
+        const dataForEl = item.getAttribute('data-for');
+        
+        itemsOneBody.forEach(body=> {
+          const dataIdBody = body.getAttribute('data-id');
+          if(dataForEl === dataIdBody) {
+            // body.classList.add('is-open');
+            body.style.display = 'none';
+          }
+          // else {
+          //   body.classList.remove('is-open');
+          // }
+        });
+      });
+    });
+  }
   setTimeout(()=> {
     const itemsOne = document.querySelectorAll('#img1.interactive-image .hotspot');
     const itemsTwo = document.querySelectorAll('#img2.interactive-image .hotspot');
 
+    const itemsOneBody = document.querySelectorAll('#img1.interactive-image .item');
+    const itemsTwoBody = document.querySelectorAll('#img2.interactive-image .item');
+
     setCountForDotsFn(itemsOne);
     setCountForDotsFn(itemsTwo);
+
+    changeBlockStatus(itemsOne, itemsOneBody)
   }, 200);
 </script>
 <footer class="footer">
