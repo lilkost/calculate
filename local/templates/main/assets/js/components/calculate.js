@@ -2,7 +2,7 @@ const calculate = () => {
     const items = document.querySelectorAll('.result-slider__slide');
     const specificationNode = document.querySelector('.specification');
     const specificationBodyNode = document.querySelector('.specification__table-body')
-    
+    const resultBtnNode = document.querySelector('.result__btn');
     // текст на кнопках
     const textBtnStatus = {
         default: 'Добавить',
@@ -13,6 +13,21 @@ const calculate = () => {
     const numberWithSpaces = (x)=> {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
+    // изменения позиции кнопки
+    const changePositionResultBtn = (state = '') => {
+        if(state === 'top') {
+            const parentElResultBtn = document.querySelector('.result');
+            const top = `${parentElResultBtn.clientHeight}px`;
+            
+            resultBtnNode.style.top = top;
+            resultBtnNode.style.position = 'absolute';
+            resultBtnNode.style.right = '0';
+        } else {
+            resultBtnNode.style.top = 0;
+            resultBtnNode.style.position = 'static';
+            resultBtnNode.style.right = '0';
+        }
+    }
 
     // Функция перерендера компонента после удаления элемента из таблицы
     const reRenderTableItems = () => {
@@ -20,6 +35,7 @@ const calculate = () => {
 
         if(countElementBody === 0) {
             specificationNode.classList.remove('is-open');
+            changePositionResultBtn('')
         }
     }
 
@@ -226,11 +242,13 @@ const calculate = () => {
             // изменение инпута
             setValueAndCountInputForItems(itm, currentCount, currentPrice);
         });
+
         // добавить в таблицу элемент
         addBtn.addEventListener('click', ()=> {
             addItemToTable(itm);
             addItemAddBtnSetStatus(addBtn);
             allCounting();
+            changePositionResultBtn('top');
         });
     })
 }

@@ -3,6 +3,8 @@ const modelFilter = () => {
     const texts = document.querySelectorAll('.model__texts');
 
     const handleButtons = (btn) => {
+        const dataStatePage = String(btn.getAttribute('data-block-active'));
+
         buttons.forEach(button=> {
             button.classList.remove('is-active');
         });
@@ -22,6 +24,40 @@ const modelFilter = () => {
                 text.classList.remove('is-active');
             }
         });
+
+        // state block's
+        if(dataStatePage === 'grille' || dataStatePage === 'all') {
+            document.querySelector('.grille-type').classList.remove('is-disabled');
+        } else {
+            document.querySelector('.grille-type').classList.add('is-disabled');
+            document.querySelectorAll('.grille-type__texts').forEach(text=>{
+                text.classList.remove('is-active');
+            });
+            document.querySelectorAll('.grille-type__images').forEach(img=> {
+                img.classList.remove('is-active');
+            });
+            document.querySelectorAll('.grille-type__item').forEach(itm=> {
+                const dataID = String(itm.getAttribute('data-id'));
+
+                if(dataID === 'grDisabled') {
+                    itm.classList.add('is-active');
+                    itm.querySelector('input').checked = true;
+                } else {
+                    itm.classList.remove('is-active');
+                }
+            });
+        }
+
+        if(dataStatePage === 'colorRAL' || dataStatePage === 'all') {
+            document.querySelector('.colorRal').classList.remove('is-disabled') 
+        } else {
+            document.querySelector('.colorRal').classList.add('is-disabled');
+            document.querySelector('.colorRal').classList.remove('is-active');
+            document.querySelector('.colorRal .filter-color__item-decor_two-el input').value = '';
+            document.querySelector('.colorRal .filter-color__label input').checked = false;
+            document.querySelector('.filter-color__texts').innerHTML = '';
+        }
+
     }
 
     buttons.forEach(btn=>{

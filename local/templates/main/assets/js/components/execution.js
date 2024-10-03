@@ -14,7 +14,8 @@ const execution = () => {
     const imgLeft = document.getElementById('blockRotateImageLeft');
     const imgRight = document.getElementById('blockRotateImageRight');
     const parentImage = document.querySelector('.block-rotate__images');
-
+    // Иконки открытия подсказки
+    const btnInfoOpen = document.querySelectorAll('.block-rotate__btn-info');
     // ссылки на картинки
     const srcImages = {
         defaultLeft: 'local/templates/main/assets/image/rotate/default-left.svg',
@@ -173,23 +174,6 @@ const execution = () => {
                 num = -90;
             }
 
-            
-
-            
-            console.log(num);
-
-            console.log(btnStateOne.getAttribute('data-count'))
-            // btnStateOne.setAttribute('data-count', num);
-            
-            // btnStateOne.setAttribute('data-count', num);
-
-            // if(num > 0) {
-            //     num = num * -1;
-            // }
-            // else {
-            //     num = num;
-            // }
-
             firstInput.value = num;
             btnStateOne.setAttribute('data-count', num);
             imgLeft.style.transform = `rotate(${num}deg)`;
@@ -221,6 +205,19 @@ const execution = () => {
     secondInput.addEventListener("input", (e)=> {
         const currentNumber = Number(e.target.value);
         changeValueInput(currentNumber, btnStateTwo);
+    });
+
+    btnInfoOpen.forEach(btn=> {
+        const parent = btn.closest('.block-rotate');
+        const infoBlockText = parent.querySelector('.block-rotate__btn-info-text');
+
+        console.log(parent)
+        btn.addEventListener("mousemove", ()=> {
+            infoBlockText.style.opacity = 1;
+        }, {capture: true});
+        btn.addEventListener("mouseleave", ()=> {
+            infoBlockText.style.opacity = 0;
+        })
     });
 }
 
