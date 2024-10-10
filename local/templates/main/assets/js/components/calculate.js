@@ -17,15 +17,19 @@ const calculate = () => {
     const changePositionResultBtn = (state = '') => {
         if(state === 'top') {
             const parentElResultBtn = document.querySelector('.result');
-            const top = `${parentElResultBtn.clientHeight}px`;
+            const top = `${parentElResultBtn.clientHeight + 12}px`;
             
             resultBtnNode.style.top = top;
             resultBtnNode.style.position = 'absolute';
             resultBtnNode.style.right = '0';
-        } else {
+
+        } 
+        else {
+        
             resultBtnNode.style.top = 0;
             resultBtnNode.style.position = 'static';
             resultBtnNode.style.right = '0';
+        
         }
     }
 
