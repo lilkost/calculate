@@ -14,7 +14,27 @@ const modal = () => {
         if(e.keyCode === 27) {
             modal.classList.remove('is-open');
         }
-    })
+    });
+
+    if(document.querySelector('.grille-type__modal')) {
+        const modal = document.querySelector('.grille-type__modal');
+        const btnOpen = document.querySelector('.grille-type__btn ');
+        const btnClose = document.querySelector('.grille-type__modal-close-btn');
+
+        btnOpen.addEventListener("click", ()=> {
+            modal.classList.add('is-open')
+        });
+
+        btnClose.addEventListener("click", ()=> {
+            modal.classList.remove('is-open');
+        });
+        
+        window.addEventListener('keypress', (e)=> {
+            if(e.keyCode === 27) {
+                modal.classList.remove('is-open');
+            }
+        });
+    }
 }
 
 export default modal;
