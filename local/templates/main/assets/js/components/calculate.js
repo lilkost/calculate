@@ -29,7 +29,6 @@ const calculate = () => {
             resultBtnNode.style.top = 0;
             resultBtnNode.style.position = 'static';
             resultBtnNode.style.right = '0';
-        
         }
     }
 

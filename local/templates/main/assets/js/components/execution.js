@@ -208,16 +208,25 @@ const execution = () => {
     });
 
     btnInfoOpen.forEach(btn=> {
-        const parent = btn.closest('.block-rotate');
-        const infoBlockText = parent.querySelector('.block-rotate__btn-info-text');
+        const infoBlockText = document.querySelectorAll('.block-rotate__btn-info-text');
 
-        console.log(parent)
-        btn.addEventListener("mousemove", ()=> {
-            infoBlockText.style.opacity = 1;
-        }, {capture: true});
-        btn.addEventListener("mouseleave", ()=> {
-            infoBlockText.style.opacity = 0;
-        })
+        btn.addEventListener("click", (e)=> {
+            const dataID = String(btn.getAttribute('data-id-btn'));
+
+            infoBlockText.forEach(text=> {
+                const textID = String(text.getAttribute('data-body-id'));
+                if(textID === dataID) {
+                    text.classList.add('is-active')
+
+                    setTimeout(()=> {
+                        text.classList.remove('is-active');
+                    },1500);
+                }
+                else {
+                    text.classList.remove('is-active')
+                }
+            });
+        });
     });
 }
 
