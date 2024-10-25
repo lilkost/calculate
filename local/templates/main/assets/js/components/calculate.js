@@ -40,6 +40,7 @@ const calculate = () => {
             specificationNode.classList.remove('is-open');
             changePositionResultBtn('')
         }
+
     }
 
     // Функция подсчета кол-ва в конце таблицы
