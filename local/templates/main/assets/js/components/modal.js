@@ -23,6 +23,28 @@ const modal = () => {
 
         btnOpen.addEventListener("click", ()=> {
             modal.classList.add('is-open')
+            document.querySelector('.frame-type__modal').classList.remove('is-open')
+        });
+
+        btnClose.addEventListener("click", ()=> {
+            modal.classList.remove('is-open');
+        });
+        
+        window.addEventListener('keypress', (e)=> {
+            if(e.keyCode === 27) {
+                modal.classList.remove('is-open');
+            }
+        });
+    }
+
+    if(document.querySelector('.frame-type__modal')) {
+        const modal = document.querySelector('.frame-type__modal');
+        const btnOpen = document.querySelector('.frame-type__btn');
+        const btnClose = document.querySelector('.frame-type__modal-close-btn');
+
+        btnOpen.addEventListener("click", ()=> {
+            modal.classList.add('is-open')
+            document.querySelector('.grille-type__modal').classList.remove('is-open')
         });
 
         btnClose.addEventListener("click", ()=> {

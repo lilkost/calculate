@@ -40,6 +40,24 @@ const slider = ()=> {
             },
         });
     }
+
+    if(document.querySelector('.frame-type__modal-slider')) {
+        const slider = document.querySelector('.frame-type__modal-slider');
+        const swiper = new Swiper(slider, {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            spaceBetween: 10,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.frame-type__modal-slider-btn-next',
+                prevEl: '.frame-type__modal-slider-btn-prev',
+            },
+        });
+    }
 }
 
 export default slider;
