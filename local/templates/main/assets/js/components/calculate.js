@@ -195,7 +195,7 @@ const calculate = () => {
             const nodePrice = itm.querySelector('.result-slider__slide-price span');
 
             currentCount+=1;
-            countNode.innerHTML = currentCount;
+            countNode.value = currentCount;
             itm.setAttribute('data-count', currentCount);
             
             // price
@@ -213,7 +213,7 @@ const calculate = () => {
             if(currentCount <= 1) return;
 
             currentCount-=1;
-            countNode.innerHTML = currentCount;
+            countNode.value = currentCount;
             itm.setAttribute('data-count', currentCount);
 
             // price

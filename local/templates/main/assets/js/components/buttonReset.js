@@ -4,6 +4,7 @@ const buttonReset = () => {
     btnReset.addEventListener('click', ()=> {
         location.reload();
     });
+
 }
 
 export default buttonReset;
