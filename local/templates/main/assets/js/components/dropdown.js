@@ -67,6 +67,20 @@ const dropdown = ()=> {
     dropdownButtons.forEach(btn=> {
         btn.addEventListener('click', ()=> handleClick(btn));
     });
+
+    if(document.querySelector('.model__texts')) {
+        const texts = document.querySelectorAll('.model__texts');
+
+        // model__texts-btn
+
+        texts.forEach(el=> {
+            const btn = el.querySelector(".model__texts-btn");
+
+            btn.addEventListener("click", ()=> {
+                el.classList.remove("is-active");
+            });
+        });
+    }
 }
 
 export default dropdown;
