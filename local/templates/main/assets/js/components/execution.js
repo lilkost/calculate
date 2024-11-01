@@ -163,6 +163,7 @@ const execution = () => {
         }
 
         checkIndent();
+        changeMaxWidthInput();
     }
     // изсенение угла поворота картинки
     const handleRotateImage = (parent, btnMin, btnPlus, count) => {
@@ -178,7 +179,21 @@ const execution = () => {
 
         handleRotateImage(parent, btnMinusNode, btnPlusNode, countNode);
     });
-
+    // const change second value max width input 
+    function changeMaxWidthInput(){
+        if(secondInput.value > 10) {
+            secondInput.style.maxWidth = '26px';
+        }
+        else if(secondInput.value < 10 && secondInput.value > 0) {
+            secondInput.style.maxWidth = '17px';
+        } 
+        else if(secondInput.value < 0 && secondInput.value > -10){
+            secondInput.style.maxWidth = '17px';
+        }
+        else if (secondInput.value <= -10) {
+            secondInput.style.maxWidth = '26px';
+        }
+    }
     // Изменение через input
     const changeValueInput = (num, parent) => {
         // работа с левыми эллементами
@@ -240,6 +255,8 @@ const execution = () => {
             }
 
             secondInput.value = num;
+
+            changeMaxWidthInput();
             
             btnStateTwo.setAttribute('data-count', num);
             imgRight.style.transform = `rotate(${num}deg)`;
