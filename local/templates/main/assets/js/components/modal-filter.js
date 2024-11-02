@@ -1,9 +1,11 @@
 const modelFilter = () => {
     const buttons = document.querySelectorAll('.model__filter-btn');
     const texts = document.querySelectorAll('.model__texts');
+    const imaegesNode = document.querySelectorAll('.model__picture-img');
 
     const handleButtons = (btn) => {
-        const dataStatePage = String(btn.getAttribute('data-block-active'));
+        const dataStatePage = String(btn.getAttribute("data-block-active"));
+        const dataImageActive = String(btn.getAttribute("data-picture-show"))
 
         buttons.forEach(button=> {
             button.classList.remove('is-active');
@@ -12,7 +14,6 @@ const modelFilter = () => {
         btn.classList.add('is-active');
 
         const dataID = btn.getAttribute('data-id-text');
-
         
         texts.forEach(text=>{
             const dataIDText = text.getAttribute('data-text-id');
@@ -58,6 +59,15 @@ const modelFilter = () => {
             document.querySelector('.filter-color__texts').innerHTML = '';
         }
 
+        imaegesNode.forEach(img=> {
+            const imgDataId = String(img.getAttribute("data-id-img"));
+
+            if(imgDataId === dataImageActive) {
+                img.classList.add("is-active")
+            } else {
+                img.classList.remove("is-active")
+            }
+        });
     }
 
     buttons.forEach(btn=>{
