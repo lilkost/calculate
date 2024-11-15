@@ -49,15 +49,15 @@ const modelFilter = () => {
             });
         }
 
-        if(dataStatePage === 'colorRAL' || dataStatePage === 'all') {
-            document.querySelector('.colorRal').classList.remove('is-disabled') 
-        } else {
-            document.querySelector('.colorRal').classList.add('is-disabled');
-            document.querySelector('.colorRal').classList.remove('is-active');
-            document.querySelector('.colorRal .filter-color__item-decor_two-el input').value = '';
-            document.querySelector('.colorRal .filter-color__label input').checked = false;
-            document.querySelector('.filter-color__texts').innerHTML = '';
-        }
+        // if(dataStatePage === 'colorRAL' || dataStatePage === 'all') {
+        //     document.querySelector('.colorRal').classList.remove('is-disabled') 
+        // } else {
+        //     document.querySelector('.colorRal').classList.add('is-disabled');
+        //     document.querySelector('.colorRal').classList.remove('is-active');
+        //     document.querySelector('.colorRal .filter-color__item-decor_two-el input').value = '';
+        //     document.querySelector('.colorRal .filter-color__label input').checked = false;
+        //     document.querySelector('.filter-color__texts').innerHTML = '';
+        // }
 
         imaegesNode.forEach(img=> {
             const imgDataId = String(img.getAttribute("data-id-img"));

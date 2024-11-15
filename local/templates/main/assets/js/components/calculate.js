@@ -170,6 +170,7 @@ const calculate = () => {
                 rowPrice.innerHTML = numberWithSpaces(currentPrice);
             }
         });
+
         allCounting();
     }
 
@@ -254,7 +255,7 @@ const calculate = () => {
             allCounting();
             changePositionResultBtn('top');
         });
-    })
+    });
 }
 
 export default calculate;
